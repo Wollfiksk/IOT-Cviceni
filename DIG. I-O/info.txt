@@ -1,0 +1,20 @@
+Co to je
+Tento projekt je praktická ukázka využití digitálních vstupů a výstupů (GPIO pinů) na mikrokontroléru Raspberry Pi Pico W. Slouží k pochopení toho, jak mikrokontrolér přijímá informace z vnějšího světa (čtení digitálního vstupu) a jak na ně reaguje (ovládání digitálního výstupu). Fyzicky jde o obvod, kde stisknutím tlačítka (vstup) pošlete signál do procesoru, který ho zpracuje a následně pustí elektrický proud do externí LED diody (výstup), čímž ji rozsvítí.
+
+Zapojení
+
+Externí LED dioda (Digitální výstup):
+
+Pin GP15 (fyzický pin 20): Připojte na jeden konec ochranného rezistoru (ideálně s odporem 220 Ω až 330 Ω).
+
+Druhý konec rezistoru připojte na delší nožičku LED diody (anoda, kladný pól).
+
+Kratší nožičku LED diody (katoda, záporný pól) připojte na libovolný pin GND (uzemnění, například fyzický pin 23).
+
+Tlačítko (Digitální vstup):
+
+Jeden kontakt tlačítka připojte na pin 3V3(OUT) (fyzický pin 36, který poskytuje stálé napětí 3,3 V).
+
+Druhý kontakt tlačítka připojte na pin GP14 (fyzický pin 19).
+
+Obvod nepotřebuje žádný další fyzický odpor pro tlačítko. Kód totiž aktivuje interní „pull-down“ rezistor uvnitř čipu, který udržuje napětí na nule, dokud tlačítko nestisknete a nepustíte do pinu 3,3 V.
